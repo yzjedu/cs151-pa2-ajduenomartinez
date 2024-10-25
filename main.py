@@ -43,6 +43,7 @@ while SENTINEL != 1:
 
 
 
+
     #prompt asking how many sticks will be used
     total_sticks = input('How many sticks will play? Please input a number between 10 and 100:' )
 
