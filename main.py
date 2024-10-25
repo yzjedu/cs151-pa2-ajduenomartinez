@@ -25,34 +25,30 @@ print('Hello! Welcome to the Game of Sticks! In this game, you will enter how ma
           'then you will take turns with the computer player to remove 1 to 3 sticks. \nWhoever removes the last stick loses!')
 
 #main loop
-while SENTINEL != 1:
+while SENTINEL == 0:
     if times_played > 0:
         total_sticks = 0
         game_running = 0
         replay_game = str(input('Would you like to play again? \nInput "y" for yes and "n" for no:' ))
         while replay_game != 'y' and replay_game != 'n':
-            replay_game = str(input('Would you like to play again? \n') )
+            replay_game = str(input('Would you like to play again?: ') )
         if replay_game.lower() == 'n':
-           SENTINEL = 1
+           SENTINEL = 0
+           break
+
 
     #prompt asking how many players will play
     player_number = input("How many players will play? Input '1' for you and the computer, and input '2' for you, a friend, and the computer!:")
-    while not player_number.isdigit() and player_number < 1 or player_number > 2:
-        player_number = (input('Please enter a valid number:'))
-
-
-
-
+    while not (player_number.isdigit() and int(player_number) in [1, 2]):
+        player_number = input("Please enter a valid number of players:" )
+    player_number = int(player_number)
 
     #prompt asking how many sticks will be used
     total_sticks = input('How many sticks will play? Please input a number between 10 and 100:' )
+    while not (total_sticks.isdigit() and 10 < int(total_sticks) < 100):
+        total_sticks = input('Please enter a valid number between 10 and 100:')
+    total_sticks = int(total_sticks)
 
-    while total_sticks.isdigit():
-        total_sticks = input('Please enter a valid number:')
-        if total_sticks.isdigit():
-            total_sticks = int(total_sticks)
-            if 10 > total_sticks or total_sticks > 100:
-                total_sticks = input('Please enter a valid number:')
 
 
     #loop for while game is running
@@ -60,27 +56,29 @@ while SENTINEL != 1:
 
         #player 1's turn
         player_1_sticks = input("Player 1's turn! How many sticks will you remove? Please input a number between 1 and 3:" )
-        while player_1_sticks != 1 or 2 or 3 and not player_1_sticks.isalpha():
+        while not (player_1_sticks.isdigit() and int(player_1_sticks) in [1, 2, 3]):
             player_1_sticks = input("Please input a valid number between 1 and 3:" )
-            if player_1_sticks.isdigit():
-                player_1_sticks = int(player_1_sticks)
-            total_sticks = total_sticks - player_1_sticks
+        if player_1_sticks.isdigit():
+            player_1_sticks = int(player_1_sticks)
+            total_sticks -= player_1_sticks
 
+        print(total_sticks)
         #player 1 loses
         if total_sticks <= 0:
             print("Player 1 drew the last stick! You lose, Player 1!")
             player_1_losses += 1
             times_played += 1
             game_running = 1
+            break
 
         #Player 2's turn, if there is a player 2 participating
         if player_number == 2:
             player_2_sticks = input("Player 2's turn! How many sticks will you remove? Please input a number between 1 and 3:" )
-            while player_2_sticks != 1 or 2 or 3 and player_2_sticks.isalpha():
+            while not (player_2_sticks.isdigit() and int(player_2_sticks) in [1, 2, 3]):
                 player_2_sticks = input("Please input a valid number between 1 and 3:" )
-                if player_2_sticks.isdigit():
-                    player_2_sticks = int(player_2_sticks)
-            total_sticks = total_sticks - player_2_sticks
+            if player_2_sticks.isdigit():
+                player_2_sticks = int(player_2_sticks)
+                total_sticks -= player_2_sticks
 
             #Player 2 loses
             if total_sticks <= 0:
@@ -88,10 +86,11 @@ while SENTINEL != 1:
                 player_2_losses += 1
                 times_played += 1
                 game_running = 1
+                break
 
         #Computer player's turn
         player_3_sticks = random.randint(1, 3)
-        print("COM Player's turn! They removed" + str(player_3_sticks) + " stick(s)!")
+        print("COM Player's turn! They removed", str(player_3_sticks) + " stick(s)!")
         total_sticks = total_sticks - player_3_sticks
         if total_sticks <= 0:
             print("COM player drew the last stick! You lose, COM player!")
