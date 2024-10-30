@@ -56,7 +56,7 @@ while SENTINEL == 0:
 
         #player 1's turn
         player_1_sticks = input("Player 1's turn! How many sticks will you remove? Please input a number between 1 and 3:" )
-        while not (player_1_sticks.isdigit() and int(player_1_sticks) in [1, 2, 3]):
+        while not (player_1_sticks.isdigit() and int(player_1_sticks) in 1, 2, 3):
             player_1_sticks = input("Please input a valid number between 1 and 3:" )
         if player_1_sticks.isdigit():
             player_1_sticks = int(player_1_sticks)
@@ -74,7 +74,7 @@ while SENTINEL == 0:
         #Player 2's turn, if there is a player 2 participating
         if player_number == 2:
             player_2_sticks = input("Player 2's turn! How many sticks will you remove? Please input a number between 1 and 3:" )
-            while not (player_2_sticks.isdigit() and int(player_2_sticks) in [1, 2, 3]):
+            while not (player_2_sticks.isdigit() and int(player_2_sticks) in 1, 2, 3):
                 player_2_sticks = input("Please input a valid number between 1 and 3:" )
             if player_2_sticks.isdigit():
                 player_2_sticks = int(player_2_sticks)
