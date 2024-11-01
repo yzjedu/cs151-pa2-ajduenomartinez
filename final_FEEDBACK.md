@@ -39,7 +39,7 @@
 | **YES-** | Appropriate in-line commentary given     |
 
 ### Format/Design: open
-
+«¡∑
 | Result   | Description                              |
 |----------|------------------------------------------|
 | **YES-** | Proper use of upper/lowercase            |
@@ -62,7 +62,7 @@
 - We have not used lists yet. You were supposed to solve this problem with the knowledge we acquired so far 
 - Based on your test to result and our last meeting, it feels like you have not written this code by yourself. 
 - I can upgrade your grade to an E if you prove to me that you have written this code by yourself. 
-### Grade: M
+### Grade: E
 
-### Participation Grade: U
+### Participation Grade: S
 No flow chart 
